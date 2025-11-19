@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catering Menu</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -15,7 +19,12 @@
             color: #333;
         }
 
-        .container { max-width: 1200px; margin: 0 auto 40px auto; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* HEADER */
 
         .header {
             background: linear-gradient(135deg, #ffffff 0%, #fff5fb 40%, #f7f3ff 100%);
@@ -34,19 +43,34 @@
             margin-bottom: 16px;
         }
 
-        .brand-left { display: flex; align-items: center; gap: 14px; }
+        .brand-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
 
         .logo-circle {
-            width: 56px; height: 56px; border-radius: 50%;
-            overflow: hidden; background: #ffe4f0;
-            display: flex; align-items: center; justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #ffe4f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border: 2px solid #f8bbd0;
         }
 
-        .logo-circle img { width: 100%; height: 100%; object-fit: cover; }
+        .logo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
         .brand-text-main {
-            font-size: 1.4em; letter-spacing: 2px; text-transform: uppercase;
+            font-size: 1.4em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             font-weight: 700;
             background: linear-gradient(120deg, #f06292, #ba68c8);
             -webkit-background-clip: text;
@@ -54,7 +78,10 @@
             background-clip: text;
         }
 
-        .brand-text-sub { font-size: 0.85em; color: #888; }
+        .brand-text-sub {
+            font-size: 0.85em;
+            color: #888;
+        }
 
         .header h1 {
             font-size: 2.4em;
@@ -71,7 +98,11 @@
             text-align: center;
         }
 
-        .reservation-row { display: flex; justify-content: center; margin-top: 6px; }
+        .reservation-row {
+            display: flex;
+            justify-content: center;
+            margin-top: 6px;
+        }
 
         .reservation-badge {
             background: #fff;
@@ -96,17 +127,34 @@
             text-align: center;
         }
 
-        .section { margin-bottom: 40px; }
+        /* SECTION TITLES */
 
-        .section-title { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-
-        .section-icon {
-            width: 40px; height: 40px; border-radius: 14px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.4em; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        .section {
+            margin-bottom: 40px;
         }
 
-        .section-title h2 { font-size: 1.7em; color: #333; }
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4em;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .section-title h2 {
+            font-size: 1.7em;
+            color: #333;
+        }
 
         .section-note {
             color: #777;
@@ -119,6 +167,8 @@
         .section-icon.cups     { background: #efe3ff; }
         .section-icon.mains    { background: #ffe7da; }
         .section-icon.desserts { background: #e6f4ff; }
+
+        /* GRID & CARDS */
 
         .menu-grid {
             display: grid;
@@ -165,9 +215,18 @@
             white-space: nowrap;
         }
 
-        .menu-item .serves { color: #9b9b9b; font-size: 0.8em; }
+        .menu-item .serves {
+            color: #9b9b9b;
+            font-size: 0.8em;
+        }
 
-        .item-desc { font-size: 0.85em; color: #777; margin-top: 2px; }
+        .item-desc {
+            font-size: 0.85em;
+            color: #777;
+            margin-top: 2px;
+        }
+
+        /* MODAL */
 
         .modal {
             display: none;
@@ -179,7 +238,11 @@
             padding: 24px;
         }
 
-        .modal.active { display: flex; justify-content: center; align-items: center; }
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
         .modal-content {
             background: #ffffff;
@@ -193,8 +256,14 @@
         }
 
         @keyframes popIn {
-            from { transform: translateY(10px) scale(0.97); opacity: 0; }
-            to   { transform: translateY(0) scale(1);   opacity: 1; }
+            from {
+                transform: translateY(10px) scale(0.97);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
         }
 
         .modal-header {
@@ -210,7 +279,10 @@
             z-index: 2;
         }
 
-        .modal-header h2 { font-size: 1.7em; color: #333; }
+        .modal-header h2 {
+            font-size: 1.7em;
+            color: #333;
+        }
 
         .modal-header .price {
             font-size: 1.4em;
@@ -228,7 +300,8 @@
         .close-btn {
             background: #ffffff;
             border: none;
-            width: 36px; height: 36px;
+            width: 36px;
+            height: 36px;
             border-radius: 999px;
             font-size: 1.4em;
             cursor: pointer;
@@ -238,9 +311,13 @@
             transition: background 0.2s;
         }
 
-        .close-btn:hover { background: #f8c6db; }
+        .close-btn:hover {
+            background: #f8c6db;
+        }
 
-        .modal-body { padding: 22px 26px 26px 26px; }
+        .modal-body {
+            padding: 22px 26px 26px 26px;
+        }
 
         .image-placeholder {
             width: 100%;
@@ -264,7 +341,11 @@
             border-radius: 16px;
         }
 
-        .detail-section h3 { font-size: 1.2em; color: #555; margin-bottom: 8px; }
+        .detail-section h3 {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 8px;
+        }
 
         .detail-section .content {
             padding: 16px 18px;
@@ -276,21 +357,38 @@
         }
 
         @media (max-width: 768px) {
-            body { padding: 16px; }
-            .header { padding: 22px 18px 18px 18px; }
-            .brand-row { flex-direction: row; align-items: center; }
-            .header h1 { font-size: 2.1em; }
-            .modal { padding: 16px; }
+            body {
+                padding: 16px;
+            }
+
+            .header {
+                padding: 22px 18px 18px 18px;
+            }
+
+            .brand-row {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .header h1 {
+                font-size: 2.1em;
+            }
+
+            .modal {
+                padding: 16px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Header with logo + brand -->
         <div class="header">
             <div class="brand-row">
                 <div class="brand-left">
                     <div class="logo-circle">
-                        <img src="logo.png" alt="Berry On Top logo">
+                        <!-- logo file -->
+                        <img src="images/logo.png" alt="Berry On Top logo">
                     </div>
                     <div>
                         <div class="brand-text-main">BERRY ON TOP</div>
@@ -310,37 +408,44 @@
             </div>
         </div>
 
+        <!-- Finger Food Section -->
         <div class="section">
             <div class="section-title">
                 <div class="section-icon finger">🍢</div>
                 <h2>Finger Food</h2>
             </div>
             <p class="section-note">
-                Prices are shown <strong>per piece</strong>. Minimum order: <strong>12 pieces per item</strong>.
+                Prices are shown <strong>per piece</strong>. Minimum order: <strong>12 pieces per item</strong> (anything above is perfectly fine).
             </p>
             <div class="menu-grid" id="fingerFood"></div>
         </div>
 
+        <!-- Mini Cups Section -->
         <div class="section">
             <div class="section-title">
                 <div class="section-icon cups">🥣</div>
                 <h2>Mini Cups</h2>
             </div>
             <p class="section-note">
-                Prices are <strong>per piece</strong>, with a minimum of <strong>12 cups per recipe</strong>.
+                Prices are <strong>per piece</strong>, with a minimum of <strong>12 cups per recipe</strong>. 
+                Can be served in cups, arranged on plates, or in <em>jattat</em> — just tell us your preference.
             </p>
             <div class="menu-grid" id="miniCups"></div>
         </div>
 
+        <!-- Mains Section -->
         <div class="section">
             <div class="section-title">
                 <div class="section-icon mains">🍽️</div>
                 <h2>Mains</h2>
             </div>
-            <p class="section-note">Trays sized to serve around <strong>12–15 people</strong>.</p>
+            <p class="section-note">
+                Trays sized to serve around <strong>12–15 people</strong>. Ideal as the main warm dish on your buffet.
+            </p>
             <div class="menu-grid" id="mains"></div>
         </div>
 
+        <!-- Desserts Section -->
         <div class="section">
             <div class="section-title">
                 <div class="section-icon desserts">🧁</div>
@@ -353,6 +458,7 @@
         </div>
     </div>
 
+    <!-- Modal -->
     <div class="modal" id="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -379,47 +485,47 @@
     <script>
         const menuData = {
             fingerFood: [
-                { name: 'Fajitas', price: '2.00€', description: 'Soft tortillas filled with seasoned meat and vegetables.', image: 'fajitas.png' },
-                { name: 'Mini Pizza', price: '1.25€', description: 'Mini bites with tomato sauce, cheese and toppings.', image: 'mini-pizza.png' },
-                { name: 'Crispy Bites', price: '1.83€', description: 'Assorted crunchy appetisers with dipping sauces.', image: 'crispy-bites.png' },
-                { name: 'Beef Burger', price: '2.00€', description: 'Mini beef burgers with cheese and sauce.', image: 'beef-burger.png' },
-                { name: 'Lahem Baajin', price: '1.50€', description: 'Flatbread topped with spiced minced meat.', image: 'lahem-baajin.png' },
-                { name: 'Fatayer Sabenikh', price: '1.50€', description: 'Spinach pastries with a savoury filling.', image: 'fatayer-sabenikh.png' },
-                { name: 'Beef Samboussek', price: '1.25€', description: 'Crispy pastries stuffed with minced beef.', image: 'beef-samboussek.png' },
-                { name: 'Cheese Samboussek', price: '1.17€', description: 'Golden pastry stuffed with cheese.', image: 'cheese-samboussek.png' },
-                { name: 'Honey Chicken Burger', price: '2.00€', description: 'Honey-glazed chicken mini burger.', image: 'honey-chicken-burger.png' }
+                { name: 'Fajitas', price: '2.00€', description: 'Soft tortillas filled with seasoned meat and vegetables.', image: 'images/fajitas.png' },
+                { name: 'Mini Pizza', price: '1.25€', description: 'Mini bites with tomato sauce, cheese and toppings.', image: 'images/mini-pizza.png' },
+                { name: 'Crispy Bites', price: '1.83€', description: 'Assorted crunchy appetisers with dipping sauces.', image: 'images/crispy-bites.png' },
+                { name: 'Beef Burger', price: '2.00€', description: 'Mini beef burgers with cheese and sauce.', image: 'images/beef-burger.png' },
+                { name: 'Lahem Baajin', price: '1.50€', description: 'Flatbread topped with spiced minced meat.', image: 'images/lahem-baajin.png' },
+                { name: 'Fatayer Sabenikh', price: '1.50€', description: 'Spinach pastries with a savoury filling.', image: 'images/fatayer-sabenikh.png' },
+                { name: 'Beef Samboussek', price: '1.25€', description: 'Crispy pastries stuffed with minced beef.', image: 'images/beef-samboussek.png' },
+                { name: 'Cheese Samboussek', price: '1.17€', description: 'Golden pastry stuffed with cheese.', image: 'images/cheese-sambboussek.png' },
+                { name: 'Honey Chicken Burger', price: '2.00€', description: 'Honey-glazed chicken mini burger.', image: 'images/honey-chicken-burger.png' }
             ],
 
             miniCups: [
-                { name: 'Fatteh', price: '1.25€', description: 'Layered yoghurt, chickpeas and toasted bread.', image: 'fatteh.png' },
-                { name: 'Hommus', price: '0.83€', description: 'Creamy hummus in mini cups.', image: 'hommus.png' },
-                { name: 'Fattoush', price: '1.25€', description: 'Fresh salad with toasted bread.', image: 'fattoush.png' },
-                { name: 'Tabbouleh', price: '1.25€', description: 'Parsley, bulgur and tomato salad.', image: 'tabbouleh.png' },
-                { name: 'Tuna Salad', price: '1.25€', description: 'Tuna salad served in mini cups.', image: 'tuna-salad.png' },
-                { name: 'Caesar Salad', price: '1.25€', description: 'Classic Caesar salad cup.', image: 'caesar-salad.png' },
-                { name: 'Baba Ganoug', price: '0.83€', description: 'Smoky aubergine dip.', image: 'baba-ganoug.png' },
-                { name: 'Waraa Einab', price: '1.25€', description: 'Stuffed vine leaves.', image: 'wraa-einab.png' },
-                { name: 'Kafta with Hummus', price: '1.50€', description: 'Kafta served over hummus.', image: 'kafta-hummus.png' }
+                { name: 'Fatteh', price: '1.25€', description: 'Layered yoghurt, chickpeas and toasted bread.', image: 'images/fatteh.png' },
+                { name: 'Hommus', price: '0.83€', description: 'Creamy hummus in mini cups.', image: 'images/hommus.png' },
+                { name: 'Fattoush', price: '1.25€', description: 'Fresh salad with toasted bread.', image: 'images/fattoush.png' },
+                { name: 'Tabbouleh', price: '1.25€', description: 'Parsley, bulgur and tomato salad.', image: 'images/tabbouleh.png' },
+                { name: 'Tuna Salad', price: '1.25€', description: 'Tuna salad served in mini cups.', image: 'images/tuna-salad.png' },
+                { name: 'Caesar Salad', price: '1.25€', description: 'Classic Caesar salad cup.', image: 'images/caesar-salad.png' },
+                { name: 'Baba Ganoug', price: '0.83€', description: 'Smoky aubergine dip.', image: 'images/baba-ganoug.png' },
+                { name: 'Waraa Einab', price: '1.25€', description: 'Stuffed vine leaves.', image: 'images/wraa-einab.png' },
+                { name: 'Kafta with Hummus', price: '1.50€', description: 'Kafta served over hummus.', image: 'images/kafta-hummus.png' }
             ],
 
             mains: [
-                { name: 'Beef Mansaf', price: '50€', description: 'Traditional rice dish with beef.', serves: 'Serves 12–15 persons', image: 'beef-mansaf.png' },
-                { name: 'Beef Kabseh', price: '50€', description: 'Spiced rice with beef.', serves: 'Serves 12–15 persons', image: 'beef-kabseh.png' },
-                { name: 'Beef Shawrma', price: '40€', description: 'Marinated sliced beef.', serves: 'Serves 12–15 persons', image: 'beef-shawrma.png' },
-                { name: 'Chicken Mansaf', price: '45€', description: 'Rice topped with chicken and yoghurt sauce.', serves: 'Serves 12–15 persons', image: 'chicken-mansaf.png' },
-                { name: 'Chicken Kabseh', price: '45€', description: 'Aromatic rice cooked with chicken.', serves: 'Serves 12–15 persons', image: 'chicken-kabseh.png' },
-                { name: 'Chicken Shawrma', price: '35€', description: 'Marinated chicken slices.', serves: 'Serves 12–15 persons', image: 'chicken-shawrma.png' }
+                { name: 'Beef Mansaf', price: '50€', description: 'Traditional rice dish with beef.', serves: 'Serves 12-15 persons', image: 'images/beef-mansaf.png' },
+                { name: 'Beef Kabseh', price: '50€', description: 'Spiced rice with beef.', serves: 'Serves 12-15 persons', image: 'images/beef-kabseh.png' },
+                { name: 'Beef Shawrma', price: '40€', description: 'Marinated sliced beef.', serves: 'Serves 12-15 persons', image: 'images/beef-shawrma.png' },
+                { name: 'Chicken Mansaf', price: '45€', description: 'Rice topped with chicken and yoghurt sauce.', serves: 'Serves 12-15 persons', image: 'images/chicken-mansaf.png' },
+                { name: 'Chicken Kabseh', price: '45€', description: 'Aromatic rice cooked with chicken.', serves: 'Serves 12-15 persons', image: 'images/chicken-kabseh.png' },
+                { name: 'Chicken Shawrma', price: '35€', description: 'Marinated chicken slices.', serves: 'Serves 12-15 persons', image: 'images/chicken-shawrma.png' }
             ],
 
             desserts: [
-                { name: 'Tiramisu', price: '1.83€', description: 'Classic tiramisu in cups.', image: 'tiramisu.png' },
-                { name: 'Brownies', price: '1.67€', description: 'Rich fudgy brownies.', image: 'brownies.png' },
-                { name: 'Cheesecake', price: '2.33€', description: 'Cheesecake cups: Lotus, strawberry, blueberry.', image: 'cheesecake.png' },
-                { name: 'Pancake Bites', price: '1.67€', description: 'Mini pancake pieces.', image: 'pancake-bites.png' },
-                { name: 'Fraisier Cake Cups', price: '2.00€', description: 'Strawberry cream cake cups.', image: 'fraisier-cups.png' },
-                { name: 'Chocolate Cake Cups', price: '2.00€', description: 'Moist chocolate cake cups.', image: 'chocolate-cake-cups.png' },
-                { name: 'Chocopops Cake Cups', price: '2.00€', description: 'Chocolate cake with crisp cereals.', image: 'chocopops-cups.png' },
-                { name: 'Chocolate Dubai Tiramisu', price: '2.50€', description: 'Dubai-style tiramisu.', image: 'dubai-tiramisu.png' }
+                { name: 'Tiramisu', price: '1.83€', description: 'Classic tiramisu in cups.', image: 'images/tiramisu.png' },
+                { name: 'Brownies', price: '1.67€', description: 'Rich fudgy brownies.', image: 'images/brownies.png' },
+                { name: 'Cheesecake', price: '2.33€', description: 'Cheesecake cups: Lotus, strawberry, blueberry.', image: 'images/cheesecake.png' },
+                { name: 'Pancake Bites', price: '1.67€', description: 'Mini pancake pieces.', image: 'images/pancake-bites.png' },
+                { name: 'Fraisier Cake Cups', price: '2.00€', description: 'Strawberry cream cake cups.', image: 'images/fraisier-cups.png' },
+                { name: 'Chocolate Cake Cups', price: '2.00€', description: 'Moist chocolate cake cups.', image: 'images/chocolate-cake-cups.png' },
+                { name: 'Chocopops Cake Cups', price: '2.00€', description: 'Chocolate cake with crisp cereals.', image: 'images/chocopops-cups.png' },
+                { name: 'Chocolate Dubai Tiramisu', price: '2.50€', description: 'Dubai-style tiramisu.', image: 'images/dubai-tiramisu.png' }
             ]
         };
 
@@ -472,7 +578,9 @@
         }
 
         document.getElementById('modal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
+            if (e.target === this) {
+                closeModal();
+            }
         });
 
         renderMenu();
